@@ -8,7 +8,31 @@
         "do": false
     },
     {
-        "name": "Bere",
+        "to": "Bere",
         "do": false
+    },
+    {
+        "to": "suonare",
+        "do": "false"
+    },
+    {
+        "to": "ballare",
+        "do": "false"
+    },
+    {
+        "to": "ciao ciao",
+        "do": "false"
+    },
+    {
+        "to": "pushare",
+        "do": "false"
+    },
+    {
+        "to": "allegria",
+        "do": "false"
+    },
+    {
+        "to": "mamma",
+        "do": "false"
     }
 ]
