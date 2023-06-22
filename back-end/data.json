@@ -1,0 +1,14 @@
+[
+    {
+        "to": "Lavarsi",
+        "do": false
+    },
+    {
+        "to": "Magiare",
+        "do": false
+    },
+    {
+        "name": "Bere",
+        "do": false
+    }
+]
