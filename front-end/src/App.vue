@@ -153,6 +153,9 @@ ul {
       display: inline-block;
       width: calc(100% - 50px);
       padding-right: 10px;
+      &:hover{
+        background-color: lightgray;
+      }
       
       &.fatto {
         background-color: lightgreen;
