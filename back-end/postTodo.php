@@ -3,25 +3,23 @@ header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Headers: X-Requested-With");
 header('Content-Type: application/json');
 
-//prendo i dati post inviati da app.vue
+// Prendo i dati POST inviati da app.vue
 $newTodo = $_POST;
 $newTodo['do'] = true;
-$newTodo['id'] = uniqid(); // Assegna un ID univoco;
+$newTodo['id'] = uniqid(); // Assegna un ID univoco
 
+// Prelevo l'array di dati dal file data.json
 $dataString = file_get_contents('data.json');
 $todoList = json_decode($dataString, true);
 
-//aggiungo il nuovo todo
+// Aggiungo il nuovo todo all'array
 $todoList[] = $newTodo;
 
-//codifico in json
-$encodeList = json_encode($todoList);
+// Codifico l'array in formato JSON
+$encodedList = json_encode($todoList);
 
-//metto il file
-file_put_contents("data.json", $encodeList);
+// Scrivo l'array nel file data.json
+file_put_contents("data.json", $encodedList);
 
-echo $encodeList;
-
-
-// Cancella i dati $_POST
-unset($_POST);
+// Restituisco l'array JSON come risposta
+echo $encodedList;

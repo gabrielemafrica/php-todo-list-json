@@ -3,33 +3,21 @@ header("Access-Control-Allow-Origin: http://localhost:5173");
 header("Access-Control-Allow-Headers: X-Requested-With");
 header('Content-Type: application/json');
 
-// Ricevi i dati inviati tramite la richiesta POST
+// Ricevi l'indice del todo da barrare inviato tramite la richiesta POST
+$indexBarrato = $_POST['index'];
 
-$dati = $_POST;
-// $dati = file_get_contents("php://input");
-// //li decodifico
-// $datiDecodificati = json_decode($dati, true);
-
-//prendo tutti i dati
+// Prelevo tutti i dati dall'array nel file data.json
 $dataString = file_get_contents('data.json');
 $todoList = json_decode($dataString, true);
 
-//ciclo lista per trovare il mio oggetto
-foreach ($todoList as &$todo) {
-    if ($todo['id'] === $dati['id']){
-        $todo['do'] = !$todo['do'];
-        break;
-    }
-}
+// Modifica il valore "barrato" dell'oggetto corrispondente all'indice fornito
+$todoList[$indexBarrato]['barrato'] = !$todoList[$indexBarrato]['barrato'];
 
-//salvo le modifiche e le codifico in json
-$encodeList = json_encode($todoList);
+// Codifica le modifiche in formato JSON
+$encodedList = json_encode($todoList);
 
-//metto i dati nel file
-file_put_contents("data.json", $encodeList);
+// Scrive i dati nel file data.json
+file_put_contents("data.json", $encodedList);
 
-//stampo
-echo $encodeList;
-
-// Cancella i dati $_POST
-unset($_POST);
+// Restituisce l'array JSON come risposta
+echo $encodedList;
