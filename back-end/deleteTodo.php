@@ -16,7 +16,7 @@ $todoList = json_decode($dataString, true);
 
 //ciclo lista per trovare il mio oggetto
 foreach ($todoList as $key => &$todo) {
-    if ($todo['to'] === $dati['to']) {
+    if ($todo['id'] === $dati['id']) {
         //elimino oggetto dall array
         unset($todoList[$key]);
         break;
@@ -31,3 +31,6 @@ file_put_contents("data.json", $encodeList);
 
 //stampo
 echo $encodeList;
+
+// Cancella i dati $_POST
+unset($_POST);

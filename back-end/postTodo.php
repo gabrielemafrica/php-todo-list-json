@@ -5,6 +5,8 @@ header('Content-Type: application/json');
 
 //prendo i dati post inviati da app.vue
 $newTodo = $_POST;
+$newTodo['do'] = true;
+$newTodo['id'] = uniqid(); // Assegna un ID univoco;
 
 $dataString = file_get_contents('data.json');
 $todoList = json_decode($dataString, true);
@@ -19,3 +21,7 @@ $encodeList = json_encode($todoList);
 file_put_contents("data.json", $encodeList);
 
 echo $encodeList;
+
+
+// Cancella i dati $_POST
+unset($_POST);

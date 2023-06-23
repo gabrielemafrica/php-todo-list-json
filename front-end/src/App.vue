@@ -7,6 +7,7 @@ export default {
       todoList: [],
     
       newTodo: {
+        id: "",
         to: "",
         do: false
       }
@@ -113,8 +114,9 @@ export default {
 li{
   cursor: pointer;
   text-align: right;
-  width: 80%;
+  width: 50%;
   margin-bottom: 10px;
+  position: relative;
 }
 li:hover{
   color: brown;
@@ -125,6 +127,10 @@ li:hover{
   padding: 2px;
   border-radius: 0;
   margin-left: 10px;
+  position: absolute;
+  top: 0px;
+  right: -50px;
+  cursor: pointer;
 }
 .delete:hover{
   background-color: rgba(255, 0, 0, 0.3);
